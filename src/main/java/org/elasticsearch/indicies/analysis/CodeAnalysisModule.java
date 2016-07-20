@@ -19,6 +19,6 @@ import org.elasticsearch.common.inject.AbstractModule;
 public class CodeAnalysisModule extends AbstractModule {
     @Override
     protected void configure() {
-        bind(CodeAnalysisModule.class).asEagerSingleton();
+        bind(CodeAnalysis.class).asEagerSingleton();
     }
 }
