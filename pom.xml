@@ -7,12 +7,13 @@
     <parent>
         <groupId>org.elasticsearch.plugin</groupId>
         <artifactId>plugins</artifactId>
-        <version>2.3.3</version>
+        <version>2.3.5-SNAPSHOT</version>
     </parent>
 
     <name>code-analysis</name>
+    <groupId>org.elasticsearch.plugin</groupId>
     <artifactId>code-analysis</artifactId>
-    <version>2.3.3</version>
+    <version>2.3.5-SNAPSHOT</version>
     <description>Tools for code analysis</description>
 
     <licenses>
@@ -29,6 +30,17 @@
         <elasticsearch.license.header>${project.basedir}/dev-tools/src/main/resources/license-check/code_analysis_license_header.txt</elasticsearch.license.header>
         <elasticsearch.license.headerDefinition>${project.basedir}/dev-tools/src/main/resources/license-check/license_header_definition.xml</elasticsearch.license.headerDefinition>
     </properties>
+
+
+
+    <!-- needed for the snapshots of elasticsearch -->
+    <repositories>
+        <repository>
+            <id>oss-snapshots</id>
+            <name>Sonatype OSS Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
