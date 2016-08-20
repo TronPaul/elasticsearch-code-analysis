@@ -16,12 +16,13 @@ package org.elasticsearch.index.analysis;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.elasticsearch.common.inject.Inject;
+import org.elasticsearch.common.inject.assistedinject.Assisted;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.Index;
 
 public class CaseGramTokenFilterFactory extends AbstractTokenFilterFactory {
     @Inject
-    public CaseGramTokenFilterFactory(Index index, Settings indexSettings, String name, Settings settings) {
+    public CaseGramTokenFilterFactory(Index index, @Assisted Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
         super(index, indexSettings, name, settings);
     }
 
