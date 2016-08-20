@@ -15,6 +15,8 @@ package org.elasticsearch.plugin.analysis.codeanalysis;
  */
 
 import org.elasticsearch.common.inject.Module;
+import org.elasticsearch.index.analysis.AnalysisModule;
+import org.elasticsearch.index.analysis.CodeAnalysisBinderProcessor;
 import org.elasticsearch.indicies.analysis.CodeAnalysisModule;
 import org.elasticsearch.plugins.Plugin;
 
@@ -35,5 +37,9 @@ public class CodeAnalysisPlugin extends Plugin {
     @Override
     public Collection<Module> nodeModules() {
         return Collections.<Module>singletonList(new CodeAnalysisModule());
+    }
+
+    public void onModule(AnalysisModule module) {
+        module.addProcessor(new CodeAnalysisBinderProcessor());
     }
 }

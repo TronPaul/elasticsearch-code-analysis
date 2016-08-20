@@ -14,30 +14,18 @@ package org.elasticsearch.indicies.analysis;
  * limitations under the License.
  */
 
-import org.apache.lucene.analysis.TokenStream;
 import org.elasticsearch.common.component.AbstractComponent;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.index.analysis.CaseGramTokenFilter;
-import org.elasticsearch.index.analysis.PreBuiltTokenFilterFactoryFactory;
-import org.elasticsearch.index.analysis.TokenFilterFactory;
+import org.elasticsearch.index.analysis.AnalyzerScope;
+import org.elasticsearch.index.analysis.CodeAnalyzer;
+import org.elasticsearch.index.analysis.PreBuiltAnalyzerProviderFactory;
 import org.elasticsearch.indices.analysis.IndicesAnalysisService;
 
 public class CodeAnalysis extends AbstractComponent {
     @Inject
     public CodeAnalysis(Settings settings, IndicesAnalysisService indicesAnalysisService) {
         super(settings);
-        indicesAnalysisService.tokenFilterFactories().put("case_gram_token_filter",
-                new PreBuiltTokenFilterFactoryFactory(new TokenFilterFactory() {
-                    @Override
-                    public String name() {
-                        return "case_gram_token_filter";
-                    }
-
-                    @Override
-                    public TokenStream create(TokenStream tokenStream) {
-                        return new CaseGramTokenFilter(tokenStream);
-                    }
-                }));
+        indicesAnalysisService.analyzerProviderFactories().put("code", new PreBuiltAnalyzerProviderFactory("code", AnalyzerScope.INDICES, new CodeAnalyzer()));
     }
 }
