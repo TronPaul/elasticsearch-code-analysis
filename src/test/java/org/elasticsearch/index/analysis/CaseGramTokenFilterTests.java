@@ -96,4 +96,13 @@ public class CaseGramTokenFilterTests extends BaseTokenStreamTestCase {
         assertTokenStreamContents(stream, new String[] {"1lower", "Camel", "Case", "1lowerCamelCase", "word"});
     }
 
+    @Test
+    public void delimsOnlyTest() throws Exception {
+        StringReader reader = new StringReader("------------");
+        final MockTokenizer in = new MockTokenizer(MockTokenizer.WHITESPACE, false);
+        in.setReader(reader);
+        TokenStream stream = new CaseGramTokenFilter(in);
+        assertTokenStreamContents(stream, new String[] {"------------"});
+    }
+
 }

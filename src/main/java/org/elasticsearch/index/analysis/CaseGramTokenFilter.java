@@ -64,7 +64,7 @@ public class CaseGramTokenFilter extends TokenFilter {
             }
         }
         while (curPos++ < curTermLength) {
-            if (curPos == curTermLength && newTokStart != 0) {
+            if (curPos == curTermLength && newTokStart > 0) {
                 clearAttributes();
                 termAtt.copyBuffer(curTermBuffer, newTokStart, curPos - newTokStart);
                 posIncAtt.setPositionIncrement(curPosInc);
