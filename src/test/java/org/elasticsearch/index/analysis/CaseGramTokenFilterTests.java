@@ -97,7 +97,7 @@ public class CaseGramTokenFilterTests extends BaseTokenStreamTestCase {
     }
 
     @Test
-    public void delimsOnlyTest() throws Exception {
+    public void delimsOnly() throws Exception {
         StringReader reader = new StringReader("------------");
         final MockTokenizer in = new MockTokenizer(MockTokenizer.WHITESPACE, false);
         in.setReader(reader);
