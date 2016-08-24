@@ -1,4 +1,4 @@
-package org.elasticsearch.plugin.analysis.codeanalysis;
+package com.teamunpro.elasticsearch.plugin.analysis.codeanalysis;
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,10 +14,10 @@ package org.elasticsearch.plugin.analysis.codeanalysis;
  * limitations under the License.
  */
 
+import com.teamunpro.elasticsearch.indicies.analysis.CodeAnalysisModule;
 import org.elasticsearch.common.inject.Module;
 import org.elasticsearch.index.analysis.AnalysisModule;
-import org.elasticsearch.index.analysis.CodeAnalysisBinderProcessor;
-import org.elasticsearch.indicies.analysis.CodeAnalysisModule;
+import com.teamunpro.elasticsearch.index.analysis.CodeAnalysisBinderProcessor;
 import org.elasticsearch.plugins.Plugin;
 
 import java.util.Collection;

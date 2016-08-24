@@ -1,4 +1,4 @@
-package org.elasticsearch.index.analysis;
+package com.teamunpro.elasticsearch.index.analysis;
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,31 +14,21 @@ package org.elasticsearch.index.analysis;
  * limitations under the License.
  */
 
+import org.apache.lucene.analysis.Tokenizer;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.assistedinject.Assisted;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.Index;
+import org.elasticsearch.index.analysis.AbstractTokenizerFactory;
 
-public class CodeAnalyzerProvider extends AbstractIndexAnalyzerProvider<CodeAnalyzer> {
-    private final CodeAnalyzer analyzer;
-
-    /**
-     * Constructs a new analyzer component, with the index name and its settings and the analyzer name.
-     *
-     * @param index         The index name
-     * @param indexSettings The index settings
-     * @param name          The analyzer name
-     * @param settings
-     */
+public class AlphaNumericTokenizerFactory extends AbstractTokenizerFactory {
     @Inject
-    public CodeAnalyzerProvider(Index index, Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
+    public AlphaNumericTokenizerFactory(Index index, @Assisted Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
         super(index, indexSettings, name, settings);
-        analyzer = new CodeAnalyzer();
-        analyzer.setVersion(version);
     }
 
     @Override
-    public CodeAnalyzer get() {
-        return this.analyzer;
+    public Tokenizer create() {
+        return new AlphaNumericTokenizer();
     }
 }

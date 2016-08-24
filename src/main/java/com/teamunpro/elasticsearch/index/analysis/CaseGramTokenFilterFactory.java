@@ -1,4 +1,4 @@
-package org.elasticsearch.index.analysis;
+package com.teamunpro.elasticsearch.index.analysis;
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +14,21 @@ package org.elasticsearch.index.analysis;
  * limitations under the License.
  */
 
-import org.apache.lucene.analysis.Tokenizer;
+import org.apache.lucene.analysis.TokenStream;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.assistedinject.Assisted;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.Index;
+import org.elasticsearch.index.analysis.AbstractTokenFilterFactory;
 
-public class AlphaNumericTokenizerFactory extends AbstractTokenizerFactory {
+public class CaseGramTokenFilterFactory extends AbstractTokenFilterFactory {
     @Inject
-    public AlphaNumericTokenizerFactory(Index index, @Assisted Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
+    public CaseGramTokenFilterFactory(Index index, @Assisted Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
         super(index, indexSettings, name, settings);
     }
 
     @Override
-    public Tokenizer create() {
-        return new AlphaNumericTokenizer();
+    public TokenStream create(TokenStream tokenStream) {
+        return new CaseGramTokenFilter(tokenStream);
     }
 }

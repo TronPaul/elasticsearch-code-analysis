@@ -1,4 +1,4 @@
-package org.elasticsearch.indicies.analysis;
+package com.teamunpro.elasticsearch.indicies.analysis;
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,12 @@ package org.elasticsearch.indicies.analysis;
  * limitations under the License.
  */
 
+import com.teamunpro.elasticsearch.index.analysis.AlphaNumericTokenizerFactory;
+import com.teamunpro.elasticsearch.index.analysis.CaseGramTokenFilterFactory;
+import com.teamunpro.elasticsearch.index.analysis.CodeAnalysisBinderProcessor;
+import com.teamunpro.elasticsearch.index.analysis.CodeAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.util.LuceneTestCase;
 import org.elasticsearch.Version;
 import org.elasticsearch.cluster.metadata.IndexMetaData;
 import org.elasticsearch.common.inject.Injector;
@@ -25,34 +30,36 @@ import org.elasticsearch.env.Environment;
 import org.elasticsearch.env.EnvironmentModule;
 import org.elasticsearch.index.Index;
 import org.elasticsearch.index.IndexNameModule;
-import org.elasticsearch.index.analysis.*;
+import org.elasticsearch.index.analysis.AnalysisModule;
+import org.elasticsearch.index.analysis.AnalysisService;
+import org.elasticsearch.index.analysis.TokenFilterFactory;
+import org.elasticsearch.index.analysis.TokenizerFactory;
 import org.elasticsearch.index.settings.IndexSettingsModule;
 import org.elasticsearch.indices.analysis.IndicesAnalysisService;
 import org.elasticsearch.test.ESTestCase;
 import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import static org.elasticsearch.common.settings.Settings.Builder.EMPTY_SETTINGS;
 import static org.elasticsearch.common.settings.Settings.settingsBuilder;
-import static org.hamcrest.Matchers.instanceOf;
 
 public class CodeAnalysisTests extends ESTestCase {
     @Test
     public void testCodeAnalysis() {
         AnalysisService analysisService = createAnalysisService();
         TokenFilterFactory tokenFilterFactory = analysisService.tokenFilter("caseGram");
-        MatcherAssert.assertThat(tokenFilterFactory, instanceOf(CaseGramTokenFilterFactory.class));
+        MatcherAssert.assertThat(tokenFilterFactory, Matchers.instanceOf(CaseGramTokenFilterFactory.class));
 
         Analyzer analyzer = analysisService.analyzer("code").analyzer();
-        MatcherAssert.assertThat(analyzer, instanceOf(CodeAnalyzer.class));
+        MatcherAssert.assertThat(analyzer, Matchers.instanceOf(CodeAnalyzer.class));
 
         TokenizerFactory tokenizerFactory = analysisService.tokenizer("alphaNumeric");
-        MatcherAssert.assertThat(tokenizerFactory, instanceOf(AlphaNumericTokenizerFactory.class));
+        MatcherAssert.assertThat(tokenizerFactory, Matchers.instanceOf(AlphaNumericTokenizerFactory.class));
     }
 
     private AnalysisService createAnalysisService() {
         Settings settings = settingsBuilder()
-                .put("path.home", createTempDir())
+                .put("path.home", LuceneTestCase.createTempDir())
                 .put(IndexMetaData.SETTING_VERSION_CREATED, Version.CURRENT)
                 .build();
         Index index = new Index("test");

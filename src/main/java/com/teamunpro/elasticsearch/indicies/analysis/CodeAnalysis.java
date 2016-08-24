@@ -1,4 +1,4 @@
-package org.elasticsearch.indicies.analysis;
+package com.teamunpro.elasticsearch.indicies.analysis;
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,11 +14,11 @@ package org.elasticsearch.indicies.analysis;
  * limitations under the License.
  */
 
+import com.teamunpro.elasticsearch.index.analysis.CodeAnalyzer;
 import org.elasticsearch.common.component.AbstractComponent;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.analysis.AnalyzerScope;
-import org.elasticsearch.index.analysis.CodeAnalyzer;
 import org.elasticsearch.index.analysis.PreBuiltAnalyzerProviderFactory;
 import org.elasticsearch.indices.analysis.IndicesAnalysisService;
 

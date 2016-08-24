@@ -1,4 +1,4 @@
-package org.elasticsearch.index.analysis;
+package com.teamunpro.elasticsearch.indicies.analysis;
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +14,11 @@ package org.elasticsearch.index.analysis;
  * limitations under the License.
  */
 
-import org.apache.lucene.analysis.util.CharTokenizer;
+import org.elasticsearch.common.inject.AbstractModule;
 
-
-public class AlphaNumericTokenizer extends CharTokenizer {
+public class CodeAnalysisModule extends AbstractModule {
     @Override
-    protected boolean isTokenChar(int c) {
-        return Character.isLetter(c) || Character.isDigit(c) || c == '-' || c == '_';
+    protected void configure() {
+        bind(CodeAnalysis.class).asEagerSingleton();
     }
 }

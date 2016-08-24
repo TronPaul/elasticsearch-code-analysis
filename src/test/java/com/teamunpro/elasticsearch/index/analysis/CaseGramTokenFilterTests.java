@@ -1,4 +1,4 @@
-package org.elasticsearch.index.analysis;
+package com.teamunpro.elasticsearch.index.analysis;
 
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
