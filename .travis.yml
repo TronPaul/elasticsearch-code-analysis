@@ -1,8 +1,5 @@
 language: java
 jdk:
 - oraclejdk8
-env:
-  global:
-    secure: kNGp575ezeK94TXpTsbQLED4zyf8Ha/bvyUMvQhcjCMeBxq/BbfRSwjI2dK29VEfeTGvZDc80jmJgQp6FLxtPjp5UpgpL44KE/fL8uZDCZoYl3YiIXpeRGFAyWK+pXghq/DSTVJvnzjh1Pz5U4Yfcx/vAIclYInS3i4M8oSG0NiJsBN9GyPZxPP68V99o3I+gwpNlzKmlqJEbNNiEYr/2iSUXW+/ENHZ8JrZdTtetmh8V0qjcKNgqYyGWC/VJ8qhq//vwE8Fh+7GTVAxqKhPahWZFywAWMEYeUh2r6r5g1QGHn/N0Q6VY1yjdUZiizmAMZt+Z5Xuaa2oVbuVaczbNJjoyEWjjh0gc3UvhmFkYpY1kGXbtK7SaiSCJ3PSzMYhFVk/LFXTjC1fBWSkMW3aRdNfr0rHcbydWNaXKvEN9uPn6tAnLmh4j5mB/lObGQjnR9fn2olL/saLHB7wapfX+nDoPGLvPMC067qqv9MCE+dBvxVJVv8SZXu+P/QsfSv+ovmiJUAC04a33Fl/G7cbFjeOpMQqWcIV1UarS68G66hs2jSuHbWNzN4uFT1BkusgfWQMntsWDCN3r+WCdYhMwOF+1Gya+8YZVxPwYQQ+KJg0NRvMWWhH/HadM2oiZDrz/rsQ3ndq3Zs9INFEkpcT8uGavWmpVpfqIImc7Dv9oKs=
 after_success:
   - mvn clean test jacoco:report coveralls:report
