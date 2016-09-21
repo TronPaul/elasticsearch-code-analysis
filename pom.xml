@@ -11,7 +11,7 @@
     </parent>
 
     <name>code-analysis</name>
-    <groupId>org.elasticsearch.plugin</groupId>
+    <groupId>com.teamunpro.elasticsearch.plugin</groupId>
     <artifactId>code-analysis</artifactId>
     <version>2.3.5</version>
     <description>Tools for code analysis</description>
