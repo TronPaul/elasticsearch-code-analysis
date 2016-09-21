@@ -1,6 +1,5 @@
 FROM elasticsearch:2
 
-COPY target/releases/code-analysis-2.3.5.zip /tmp/code-analysis-2.3.5.zip
+ARG VERSION
 
-RUN /usr/share/elasticsearch/bin/plugin install file:/tmp/code-analysis-2.3.5.zip && \
-    rm /tmp/code-analysis-2.3.5.zip
+RUN /usr/share/elasticsearch/bin/plugin install https://dl.bintray.com/tronpaul/teamunpro/com/teamunpro/elasticsearch/plugin/code-analysis/${VERSION:?VERSION empty or unset}/code-analysis-$VERSION.zip

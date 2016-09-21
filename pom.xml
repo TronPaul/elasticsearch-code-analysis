@@ -31,8 +31,6 @@
         <elasticsearch.license.headerDefinition>${project.basedir}/dev-tools/src/main/resources/license-check/license_header_definition.xml</elasticsearch.license.headerDefinition>
     </properties>
 
-
-
     <!-- needed for the snapshots of elasticsearch -->
     <repositories>
         <repository>
@@ -71,5 +69,13 @@
              </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-tronpaul-com.teamunpro</id>
+            <name>tronpaul-com.teamunpro</name>
+            <url>https://api.bintray.com/maven/tronpaul/teamunpro/elasticsearch-code-analysis/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
 </project>

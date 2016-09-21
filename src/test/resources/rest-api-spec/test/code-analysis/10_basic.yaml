@@ -1,0 +1,11 @@
+---
+"Analyzer":
+    - do:
+        indices.analyzer:
+          text:     CamelCase
+          analyzer: code
+    - length: { tokens: 3}
+    - match:  { tokens.0.token: camel }
+    - match:  { tokens.1.token: case }
+    - match:  { tokens.1.token: camelcase }
+
