@@ -13,7 +13,7 @@
     <name>code-analysis</name>
     <groupId>com.teamunpro.elasticsearch.plugin</groupId>
     <artifactId>code-analysis</artifactId>
-    <version>2.3.5</version>
+    <version>2.3.5-SNAPSHOT</version>
     <description>Tools for code analysis</description>
 
     <licenses>
@@ -66,7 +66,12 @@
                         </goals>
                     </execution>
                  </executions>
-             </plugin>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
         </plugins>
     </build>
 
@@ -77,5 +82,7 @@
             <url>https://api.bintray.com/maven/tronpaul/teamunpro/elasticsearch-code-analysis/;publish=1</url>
         </repository>
     </distributionManagement>
-
+    <scm>
+        <developerConnection>scm:git:git@github.com:TronPaul/elasticsearch-code-analysis.git</developerConnection>
+    </scm>
 </project>
