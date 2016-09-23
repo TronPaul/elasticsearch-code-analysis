@@ -90,8 +90,8 @@
         </repository>
     </distributionManagement>
     <scm>
-        <developerConnection>scm:git:git@github.com:TronPaul/elasticsearch-code-analysis.git</developerConnection>
-        <connection>scm:git:git@github.com:TronPaul/elasticsearch-code-analysis.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:TronPaul/elasticsearch-code-analysis.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com:TronPaul/elasticsearch-code-analysis.git</connection>
         <url>https://github.com/TronPaul/elasticsearch-code-analysis</url>
     </scm>
 </project>
