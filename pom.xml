@@ -30,7 +30,6 @@
         <elasticsearch.license.headerDefinition>${project.basedir}/dev-tools/src/main/resources/license-check/license_header_definition.xml</elasticsearch.license.headerDefinition>
         <gpg.skip>true</gpg.skip>
         <elasticsearch.version>2.3.5</elasticsearch.version>
-        <scm.tag>v${project.version}</scm.tag>
     </properties>
 
     <!-- needed for the snapshots of elasticsearch -->
@@ -77,6 +76,7 @@
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
         </plugins>
