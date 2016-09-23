@@ -28,6 +28,7 @@
         <elasticsearch.plugin.classname>com.teamunpro.elasticsearch.plugin.analysis.codeanalysis.CodeAnalysisPlugin</elasticsearch.plugin.classname>
         <elasticsearch.license.header>${project.basedir}/dev-tools/src/main/resources/license-check/code_analysis_license_header.txt</elasticsearch.license.header>
         <elasticsearch.license.headerDefinition>${project.basedir}/dev-tools/src/main/resources/license-check/license_header_definition.xml</elasticsearch.license.headerDefinition>
+        <gpg.skip>true</gpg.skip>
     </properties>
 
     <!-- needed for the snapshots of elasticsearch -->
